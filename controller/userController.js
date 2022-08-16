@@ -14,6 +14,7 @@ const updateUser = async(req, res) => {
         const { id: userID } = req.params;
         const userUpdate = await User.updateOne({ "_id": userID }, { $set: req.body });
         const user = await User.find({ _id: userID });
+
         res.status(200).json({ user });
     } catch (error) {
         console.log(error);
